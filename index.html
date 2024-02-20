@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="whatsapp.css">
+</head>
+<body>
+	<div class="background">
+		<form action="/submit_booking" onsubmit="return validateForm()">
+
+
+		  <h2>Lama hotel</h2>
+	  
+		  <label for="guestname">اسم الضيف:</label><br>
+		  <input type="text" id="guestname" name="guestname" required><br>
+		  
+		  <label for="checkin">تاريخ الوصول:</label><br>
+		  <input type="date" id="checkin" name="checkin" required><br>
+		  
+		  <label for="checkout">تاريخ المغادرة:</label><br>
+		  <input type="date" id="checkout" name="checkout" required><br>
+		  
+		  <label for="roomtype">نوع الغرفة:</label><br>
+		  <select id="roomtype" name="roomtype" required>
+			<option value="single">فردية</option>
+			<option value="double">مزدوجة</option>
+			<option value="triple">ثلاثية</option>
+		  </select><br>
+		  
+		  <label for="time">موعد الوصول:</label><br>
+		  <select id="time" name="time" required>
+			<option value="قبل ال12 ظهرا">قبل ال12 ظهرا</option>
+			<option value="بعد ال12 ظهرا">بعد ال12 ظهرا</option>
+			<option value="بعد منتصف الليل">بعد منتصف الليل</option>
+		  </select><br>
+		  
+		  <label for="payment">طريقة الدفع:</label><br>
+		  <select id="payment" name="payment" required>
+			<option value="cash">نقدا</option>
+			<option value="fawry">فوري</option>
+			<option value="vodafone_cash">فودافون كاش</option>
+		  </select><br>
+		  
+		  <label for="phone">رقم الهاتف:</label><br>
+		  <input type="tel" id="phone" name="phone" required><br><br>
+		  
+		  <div>
+			<label>هل ترغب في ارسال الموقع؟</label><br>
+			<select id="location" name="location" required>
+			  <option value="لا">لا</option>
+			  <option value="اجل">نعم</option>
+			</select><br>
+		  </div>
+		  
+		  <label for="special_orders">طلبات خاصة:</label><br>
+		  <textarea id="special_orders" name="special_orders"></textarea><br><br>
+		  
+		  <button type="submit">تقديم</button>
+		  
+		  <div class="address">
+			العنوان: الغردق-اول شارع شيري-عماره كرم الشام
+		  </div>
+		</form>
+		
+	  </div>
+	  
+	  
+
+	<script src="whatsapp.js"></script>
+</body>
+</html>
