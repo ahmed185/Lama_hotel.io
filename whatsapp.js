@@ -38,8 +38,14 @@ function sendToWhatsapp() {
     let payment = document.getElementById('payment').value;
     let location = document.getElementById('location').value;
     let specialOrders = document.getElementById('special_orders').value;
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    let yyyy = today.getFullYear();
+    today = mm + '/' + dd + '/' + yyyy;
 
     var url = "https://wa.me/" + number + "?text="
+        +"تاريخ اليوم: " + today + "%0a"
         + "الاسم : " + name + "%0a"
         + "رقم الهاتف : " + phone1 + "%0a"
         + "تاريخ الوصول: " + checkin + "%0a"
@@ -55,4 +61,32 @@ function sendToWhatsapp() {
 
     window.open(url, '_blank').focus();
 }
+var checkin = document.getElementById('checkin');
+var checkout = document.getElementById('checkout');
+
+checkin.addEventListener('change', function() {
+  var today = new Date();
+  today.setHours(0,0,0,0); // set the time to 00:00:00.000
+  var selectedDate = new Date(checkin.value);
+
+  if (selectedDate <= today) {
+    alert('لا يمكن لتاريخ الوصول ان  يكون قبل اليوم');
+    checkin.value = '';
+  }
+});
+
+checkout.addEventListener('change', function() {
+  var selectedCheckinDate = new Date(checkin.value);
+  var selectedCheckoutDate = new Date(checkout.value);
+
+  if (selectedCheckoutDate <= selectedCheckinDate) {
+    alert('تاريخ المغادرة يجب أن يكون بعد تاريخ الوصول');
+    checkout.value = '';
+  }
+});
+
+
+
+
+
 
